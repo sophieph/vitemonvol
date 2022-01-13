@@ -22,7 +22,6 @@ class User {
         }   
     }
 
-    // getters
     public function getId() 
     {
         return $this->id;
@@ -42,9 +41,7 @@ class User {
     }
 
     public function setName($name) {
-        if (is_string($name)) {
             $this->name = $name;
-        }
     }  
 
     public function getEmail() 
@@ -53,20 +50,16 @@ class User {
     }
 
     public function setEmail($email) {
-        if (is_string($email)) {
             $this->email = $email;
-        }
     } 
 
-    public function password() 
+    public function getPassword() 
     {
         return $this->password;
     }
 
     public function setPassword($password) {
-        if (is_string($password)) {
             $this->password = $password;
-        }
     }
 
     public function isAdmin() 

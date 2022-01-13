@@ -10,6 +10,7 @@ class Trip
     protected $name;
     protected $date;
     protected $description;
+    protected $price;
     protected $maximumTravellers;
     protected $picture;
 
@@ -78,6 +79,19 @@ class Trip
     {
         if (is_string($description)) {
             $this->description = $description;
+        }
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function setPrice($price) 
+    {
+        $price = (int) $price;
+        if ($price > 0) {
+            $this->price = $price;
         }
     }
 

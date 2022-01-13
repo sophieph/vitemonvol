@@ -32,32 +32,28 @@ function signin()
     $email = $_GET['email'];
     $pass = $_GET['pass'];
 
-
     if (isset($email) && !empty($email) && isset($pass) && !empty($pass)) {
-
         if ($userManager->exists($email)) {
-
-            $user = $userManager->get($email);
-            $password_hashed = $user->password();
-            if (password_verify($pass, $password_hashed)) {
-
-
-                $response = true;
-                session_start();
-                $role = 'user';
-                if ($user->isAdmin() == '1') {
-                    $role = 'admin';
-                } 
-                $_SESSION['infos'] = $user;
-                $_SESSION['user'] = $role;
-                $_SESSION['id'] = $user->getId();
-                $_SESSION['email'] = $user->getEmail();
-                $_SESSION['start'] = time();
-                $_SESSION['expire'] = $_SESSION['start'] + (30 * 60);
-                
-            } else { 
-                $response = "Mot de passe incorrect";
-            }
+            
+                $user = $userManager->get($email);
+                $password_hashed = $user->getPassword();
+                if (password_verify($pass, $password_hashed)) {
+                    $response = true;
+                    session_start();
+                    $role = 'user';
+                    if ($user->isAdmin() == '1') {
+                        $role = 'admin';
+                    } 
+                    $_SESSION['infos'] = $user;
+                    $_SESSION['user'] = $role;
+                    $_SESSION['id'] = $user->getId();
+                    $_SESSION['email'] = $user->getEmail();
+                    $_SESSION['start'] = time();
+                    $_SESSION['expire'] = $_SESSION['start'] + (30 * 60);
+                    
+                } else { 
+                    $response = "Mot de passe incorrect";
+                }
 
         } else {
             $response = '<a href="index.php?action=signup">Inscrivez-vous</a> pour vous connecter.';
@@ -89,13 +85,11 @@ function signup()
 {
     $db = db();
     $userManager = new UserManager($db);
-
     $name = $_GET['name'];
     $email = $_GET['email'];
     $pass = $_GET['pass1'];
-    $isAdmin = $_GET['isAdmin'];
 
-    if (isset($name) && !empty($name)&& isset($email) && !empty($email) && isset($pass) && !empty($pass) && isset($isAdmin)) {
+    if (isset($name) && !empty($name)&& isset($email) && !empty($email) && isset($pass) && !empty($pass) ) {
         $options = [
             'cost' => 12,
         ];
@@ -104,11 +98,11 @@ function signup()
             'name' => $name,
             'email' => $email,
             'password' => $hashed_password,
-            'isAdmin' => intval($isAdmin)
+            'isAdmin' => 0
             ]);
 
 
-        if ($userManager->exists($user->email())) {
+        if ($userManager->exists($user->getEmail())) {
             $response = "Le mail existe déjà. Utilisez un autre mail.";
         } else {
             $userManager->add($user);
@@ -180,7 +174,6 @@ function editUser()
         $_SESSION['infos'] = $user;
 
         $response = $user->getName();
-
         echo $response;
     } 
 }

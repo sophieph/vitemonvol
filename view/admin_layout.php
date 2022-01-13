@@ -19,7 +19,6 @@
 
     <body>
             <div class="mode-admin"> 
-                <?php echo $_SESSION['id']; ?>!!
                 <?php if (!empty($_SESSION['user'] && $_SESSION['user'] == 'admin')) {
                     ?>
                 <p> <?php echo $_SESSION['user'] . " : " . $_SESSION['name'] . " | <a href='?action=board'>Tableau de bord</a> " . " | ". "<a href='?action=logoff'>Log off</a>"; ?> </p>
@@ -45,12 +44,6 @@
         <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
         
-        <script type="text/javascript">
-        
-        $( document ).ready(function() {
-            init();
-        });
-    </script>
 
     </body>
 

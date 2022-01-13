@@ -21,7 +21,7 @@ try {
             signup();
         } else if ($_GET['action'] == 'account') { // Account for member
             account();
-        } else if ($_GET['action'] == 'edit-user') { // modify info for member
+        } else if ($_GET['action'] == 'editUser') { // modify info for member
             editUser();
         } else if ($_GET['action'] == 'trips') { // modify info for member
             tripsView();
@@ -31,7 +31,11 @@ try {
             admin();
         } else if ($_GET['action'] == 'board') { // dashboard for admin
             board();
-        }
+        } else if ($_GET['action'] == 'admin-trips') { // admin : trips
+            adminTripsView();
+        } else if ($_GET['action'] == 'admin-add-trip') { // admin : add trips
+            adminAddTrip();
+        } 
     } else {
         homePage();
     }

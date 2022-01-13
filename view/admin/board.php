@@ -10,7 +10,7 @@ ob_start(); ?>
     ?>
     <div class="admin">
         <ul>
-            <li> <a href="?action=admin-product">Gérer les circuits</a></li>
+            <li> <a href="?action=admin-trips">Gérer les circuits</a></li>
             <li> <a href="?action=admin-member">Gérer les utilisateur</a></li>
         </ul>
     </div>

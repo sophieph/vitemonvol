@@ -27,15 +27,14 @@ class TripManager
      */
     public function add(Trip $trip)
     {
-        $date = new \DateTime();
-        $date->format('d/m/Y');
-        $q = $this->_db->prepare('INSERT INTO trip(name, date,description, maximum_travellers) VALUES(:name, :date, :description, :maximumTravellers)');
+        $q = $this->_db->prepare('INSERT INTO trip(name, date,description, maximumTravellers, price) VALUES(:name, :date, :description, :maximumTravellers, :price)');
         $q->bindValue(':name', $trip->getName());
         $q->bindValue(':date', $trip->getDate());
         $q->bindValue(':description', $trip->getDescription());
         $q->bindValue(':maximumTravellers', $trip->getMaximumTravellers());
+        $q->bindValue(':price', $trip->getPrice());
         $q->execute();
-        
+
         $trip->hydrate(
             [
             'code' => $this->_db->lastInsertId()
@@ -54,7 +53,7 @@ class TripManager
      */
     public function edit(Trip $trip)
     {
-        $q = $this->_db->prepare('UPDATE trip SET name = :name, date = :date,  description = :description, maximum_travellers = :maximumTravellers WHERE id = :id');
+        $q = $this->_db->prepare('UPDATE trip SET name = :name, date = :date,  description = :description, maximumTravellers = :maximumTravellers WHERE id = :id');
         $q->bindValue(':id', $trip->getId());
         $q->bindValue(':name', $trip->getName());
         $q->bindValue(':description', $trip->getDescription());

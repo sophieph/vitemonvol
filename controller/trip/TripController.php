@@ -12,12 +12,10 @@ require ROOT_PATH . 'model/trip/Trip.php';
  */
 function tripsView() 
 {
+    $db = db();
+    $tripManager = new TripManager($db);
 
-    // $trips = new Trip([
-    //     'name' => 'name',
-    //     'description' => 'Description',
-    //     'maximumTravellers' => '4'
-    // ]);
+    $trips = $tripManager->getList();
     
     include_once ROOT_PATH . 'view/trip/trips.php';
 }

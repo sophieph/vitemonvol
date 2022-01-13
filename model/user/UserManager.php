@@ -28,12 +28,13 @@ class UserManager
      */
     public function add(User $user) 
     {
+
         $q = $this->_db->prepare('INSERT INTO User(name, email, password, isAdmin) VALUES(:name, :email, :pass, :isAdmin)');
         $q->bindValue(':name', $user->getName(), PDO::PARAM_STR);
         $q->bindValue(':email', $user->getEmail(), PDO::PARAM_STR);
         $q->bindValue(':pass', $user->getPassword(), PDO::PARAM_STR);
         $q->bindValue(':isAdmin', $user->isAdmin(), PDO::PARAM_INT);
-        
+
         $q->execute();
         
         $user->hydrate(
@@ -41,6 +42,7 @@ class UserManager
             'id' => $this->_db->lastInsertId()
             ]
         );
+
     }
     
     /**
@@ -126,9 +128,10 @@ class UserManager
         $query = 'SELECT * FROM User WHERE email = :email';
         $q = $this->_db->prepare($query);
         $q->execute([':email' => $email]);
-        
-        $user = $q->fetch(PDO::FETCH_ASSOC); 
 
+        $user = $q->fetch(PDO::FETCH_ASSOC); 
+        $u = new User($user);
+        
         return new User($user);
     }
 

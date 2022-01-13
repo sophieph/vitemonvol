@@ -3,12 +3,13 @@ session_start();
 ob_start(); ?>
 
 <section id="wrapper">
+
+
     <?php
-        if (trips) {
+        if ($trips) {
         ?>
     <div id="catalogue">
 
-    okkk
         <ul>    
         <?php 
             foreach ($trips as $trip) {
@@ -19,7 +20,7 @@ ob_start(); ?>
                 <p class="title-product">
                     <?php echo $trip['name']; ?>  
                     <br>
-                    <b><?php echo $trip['price']; ?>&euro;</b>
+                    <b><?php echo $trip['date']; ?></b>
                     <br>
                 </p>
                 </a>                   

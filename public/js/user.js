@@ -1,4 +1,3 @@
-console.log('test');
 
 function editUser() {
 
@@ -9,10 +8,13 @@ function editUser() {
 
     xhr.onreadystatechange = function() {
 		if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-            window.location = "/vitemonvol/?action=account";
+            // window.location = "/vitemonvol/?action=account";
+            console.log(this.responseText);
 		}
+        console.log(this.responseText);
+
 	};
-    xhr.open("GET", "index.php?action=edit-user&name=" + name + "&email=" + email , true);
+    xhr.open("GET", "index.php?action=editUser&name=" + name + "&email=" + email , true);
     xhr.send(null);
 
     return false;

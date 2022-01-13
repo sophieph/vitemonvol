@@ -96,6 +96,8 @@ function validateSignIn() {
 
     var xhr = new XMLHttpRequest();
 
+    console.log("index.php?action=signinC&email=" + mail + "&pass=" + password);
+
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
             if (this.responseText == 1) {

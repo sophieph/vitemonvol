@@ -25,7 +25,6 @@
     </div>
 
     <div class="copyright">
-        <?php echo $_SESSION['user'];?>
         <?php 
             if ($_SESSION['user'] !== 'user') {
         ?>
