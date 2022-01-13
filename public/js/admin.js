@@ -40,3 +40,26 @@ function addTrip() {
 
     return false;
 }
+
+
+function editTrip() {
+    var id = document.getElementById("id").value;
+    var name = document.getElementById("name").value;
+    var description = document.getElementById("description").value;
+    var date = document.getElementById("date").value;
+    var price = document.getElementById("price").value;
+    var maximumTravellers = document.getElementById("maximumTravellers").value;
+
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            window.location = "/vitemonvol/?action=admin-edit-trip&id=" + id;
+		} 
+	};
+    xhr.open("GET", "index.php?action=admin-edit-trip&id=" + id + "&name=" + name + "&description=" + description + "&price=" + price + "&date=" + date + "&maximumTravellers=" + maximumTravellers , true);
+    xhr.send(null);
+
+    return false;
+}

@@ -18,6 +18,24 @@ class TripManager
     }
 
     /**
+     * Get
+     *
+     * @param  mixed $id
+     * @return void
+     * 
+     * get a trip with $id
+     */
+    public function get($id) 
+    {
+        $q = $this->_db->prepare('SELECT * FROM trip WHERE id = :id');
+        $q->execute([':id' => $id]);
+        $trip = $q->fetch(PDO::FETCH_ASSOC); 
+
+        return $trip;
+    }
+        
+
+    /**
      * Add
      *
      * @param  mixed $trip
@@ -87,8 +105,11 @@ class TripManager
      */
     public function getList() 
     {
-        $q = $this->_db->prepare('SELECT * FROM trip');
-        $q->execute();
-        return $q->fetchAll();
+        $requete = 'SELECT * FROM trip';
+        $result = $this->_db->query($requete);
+        $rows = $result->fetchAll();
+
+        return $rows;
+        
     }
 }

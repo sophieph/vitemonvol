@@ -11,14 +11,14 @@ ob_start(); ?>
     <div class="admin">
         <ul>
             <li> <a href="?action=admin-trips">Gérer les circuits</a></li>
-            <li> <a href="?action=admin-member">Gérer les utilisateur</a></li>
+            <li> <a href="?action=admin-users">Gérer les utilisateurs</a></li>
         </ul>
     </div>
 
     <?php 
         } else {
             http_response_code(404);
-            include_once ROOT_PATH . 'view/include/error404.php';
+            include_once ROOT_PATH . 'view/layoutParts/error404.php';
         }
         ?>
 </section>

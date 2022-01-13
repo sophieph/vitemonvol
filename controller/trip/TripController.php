@@ -19,3 +19,18 @@ function tripsView()
     
     include_once ROOT_PATH . 'view/trip/trips.php';
 }
+
+function trip() {
+    if (isset($_GET['id']) && !empty($_GET['id'])) {
+        $id = $_GET['id'];
+        $db = db();
+        $tripManager = new TripManager($db);
+
+        $trip = $tripManager->get($id);
+        include_once ROOT_PATH . 'view/trip/trip-view.php';
+    } else {
+        include_once ROOT_PATH . 'view/layoutParts/error404.php';
+
+    }
+    
+}

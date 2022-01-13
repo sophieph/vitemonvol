@@ -24,6 +24,7 @@
             <td><label for="price">Date du circuit </label></td>
             <td><input type="text" name="date" id="date"></td>
         </tr>
+        
 
     </table>
 

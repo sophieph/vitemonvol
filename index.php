@@ -23,8 +23,10 @@ try {
             account();
         } else if ($_GET['action'] == 'editUser') { // modify info for member
             editUser();
-        } else if ($_GET['action'] == 'trips') { // modify info for member
+        } else if ($_GET['action'] == 'trips') { // liste des voyages
             tripsView();
+        } else if ($_GET['action'] == 'trip') { // infos du voyage
+            trip();
         } else if ($_GET['action'] == 'admin') { // Admin view
             adminView();
         } else if ($_GET['action'] == 'adminc') { // Admin sign in
@@ -35,6 +37,14 @@ try {
             adminTripsView();
         } else if ($_GET['action'] == 'admin-add-trip') { // admin : add trips
             adminAddTrip();
+        } else if ($_GET['action'] == 'admin-edit-trip') { // admin : edit trip
+            adminEditTrip();
+        } else if ($_GET['action'] == 'admin-delete-trip') { // admin : edit trip
+            adminDeleteTrip();
+        }  else if ($_GET['action'] == 'admin-users') { // admin : users
+            adminUsersView();
+        } else if ($_GET['action'] == 'admin-edit-user') { // admin : edit user
+            adminEditUser();
         } 
     } else {
         homePage();

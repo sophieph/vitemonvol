@@ -61,6 +61,23 @@ class UserManager
 
         $q->execute();
     }
+
+    /**
+     * Edit
+     *
+     * @param  mixed $user
+     * @return void
+     * 
+     * edit role about a user
+     */
+    public function editRole(User $user)
+    {
+        $q = $this->_db->prepare('UPDATE User SET isAdmin = :isAdmin WHERE id = :id');
+        $q->bindValue(':id', $user->getId());
+        $q->bindValue(':isAdmin', $user->isAdmin());
+
+        $q->execute();
+    }
     
 
 
@@ -164,7 +181,7 @@ class UserManager
      */
     public function getList() 
     {
-        $q = $this->_db->prepare('SELECT * FROM User WHERE isAdmin = 0');
+        $q = $this->_db->prepare('SELECT * FROM User');
         $q->execute();
 
         return $q->fetchAll();
