@@ -1,0 +1,44 @@
+/* reset */ 
+/* 16 * 62.5 = 1.000 */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font: 1.6rem sans-serif;
+  margin: 0;
+
+}
+
+h1,h2,h3,h4,figure,p,ul,ol,form, a {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  color: var(--color-default);
+  
+}
+
+form {
+  margin: 0;
+  padding:0;
+}
+
+details,summary, a, input, form {
+  outline:none;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root{
+  /* mes variables css*/
+  --color-default:#222;
+  --color-list: #ccc;
+  --color-page:#fff;
+  --color-button:#FF964D;
+  --color-placeholder:#9f9f9f;
+  --color-link:#FF964D;
+  --color-error:#DB8900;
+}
