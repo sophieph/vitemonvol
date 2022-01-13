@@ -25,14 +25,15 @@
     </div>
 
     <div class="copyright">
+        <?php echo $_SESSION['user'];?>
         <?php 
-            if ($_SESSION['user'] != 'membre') {
+            if ($_SESSION['user'] !== 'user') {
         ?>
         <a href="?action=admin">connexion admin</a>
         <?php 
             }
         ?>
-        <p>little.s &copy; 2020</p>
+        <p>ViteMonvol &copy; 2020</p>
     </div>
 
 </footer>

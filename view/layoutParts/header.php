@@ -1,7 +1,7 @@
 <header>
     <div class="header">
         <?php 
-            if (isset($_SESSION['user']) && $_SESSION['user'] == 0) { 
+            if (isset($_SESSION['user'])) { 
         ?>
         <!-- account -->
         <div class="header-account">
@@ -32,7 +32,7 @@
         </li>
         
         <?php 
-        if (isset($_SESSION['user']) && $_SESSION['user'] == 'user') {
+        if (isset($_SESSION['user']) ) {
         ?>
         <li>
             <a href="?action=account" class="account">Mon compte</a>

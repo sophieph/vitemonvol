@@ -2,10 +2,11 @@
 session_start();
 ob_start(); ?>
 
+
 <section id="wrapper">
 
 <?php 
-    if (isset($_SESSION['user']) && $_SESSION['user'] == 1) { 
+    if (isset($_SESSION['user']) && $_SESSION['user'] == 'admin') { 
     ?>
     <div class="admin">
         <ul>

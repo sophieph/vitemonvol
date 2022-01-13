@@ -2,6 +2,12 @@
 session_start();
 ob_start(); ?>
 
+<?php 
+    if (!empty($_SESSION['user'])) {
+        header('Location: ?action=account');
+    } 
+?>
+
 <section id="wrapper">
     <div id="form-sign">
         <h3>Mon compte</h3>

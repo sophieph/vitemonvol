@@ -75,7 +75,7 @@ class User {
     }
 
     
-    public function setIsAdmin(bool $isAdmin) {
+    public function setIsAdmin($isAdmin) {
         $this->isAdmin = $isAdmin;
     } 
    

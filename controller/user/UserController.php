@@ -32,6 +32,7 @@ function signin()
     $email = $_GET['email'];
     $pass = $_GET['pass'];
 
+
     if (isset($email) && !empty($email) && isset($pass) && !empty($pass)) {
 
         if ($userManager->exists($email)) {
@@ -40,10 +41,15 @@ function signin()
             $password_hashed = $user->password();
             if (password_verify($pass, $password_hashed)) {
 
+
                 $response = true;
                 session_start();
+                $role = 'user';
+                if ($user->isAdmin() == '1') {
+                    $role = 'admin';
+                } 
                 $_SESSION['infos'] = $user;
-                $_SESSION['user'] = $user->isAdmin();
+                $_SESSION['user'] = $role;
                 $_SESSION['id'] = $user->getId();
                 $_SESSION['email'] = $user->getEmail();
                 $_SESSION['start'] = time();

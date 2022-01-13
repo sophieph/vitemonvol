@@ -43,7 +43,7 @@ function admin()
 
                     session_start();
                     $_SESSION['infos'] = $admin;
-                    $_SESSION['user'] = $admin->isAdmin();
+                    $_SESSION['user'] = 'admin';
                     $_SESSION['email'] = $admin->getEmail();
                     $_SESSION['name'] = $admin->getName();
                     

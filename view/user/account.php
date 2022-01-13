@@ -3,7 +3,7 @@ session_start();
 ob_start(); ?>
 
 <?php 
-if (!(isset($_SESSION['user']) && $_SESSION['user'] == 'user')) { 
+if (!(isset($_SESSION['user']))) { 
     http_response_code(404);
     include_once ROOT_PATH . 'view/layoutParts/error404.php';
 }

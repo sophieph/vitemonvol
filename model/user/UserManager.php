@@ -28,7 +28,7 @@ class UserManager
      */
     public function add(User $user) 
     {
-        $q = $this->_db->prepare('INSERT INTO User(name, email, password, is_admin) VALUES(:name, :email, :pass, :isAdmin)');
+        $q = $this->_db->prepare('INSERT INTO User(name, email, password, isAdmin) VALUES(:name, :email, :pass, :isAdmin)');
         $q->bindValue(':name', $user->getName(), PDO::PARAM_STR);
         $q->bindValue(':email', $user->getEmail(), PDO::PARAM_STR);
         $q->bindValue(':pass', $user->getPassword(), PDO::PARAM_STR);
@@ -106,7 +106,7 @@ class UserManager
     public function admin($email) 
     {
 
-        $q = $this->_db->prepare('SELECT is_admin FROM User WHERE email = ? AND is_admin = ?');
+        $q = $this->_db->prepare('SELECT isAdmin FROM User WHERE email = ? AND isAdmin = ?');
         $q->execute(array($email, 1));
 
         return (bool) $q->fetchColumn();
@@ -128,6 +128,7 @@ class UserManager
         $q->execute([':email' => $email]);
         
         $user = $q->fetch(PDO::FETCH_ASSOC); 
+
         return new User($user);
     }
 
@@ -160,7 +161,7 @@ class UserManager
      */
     public function getList() 
     {
-        $q = $this->_db->prepare('SELECT * FROM User WHERE is_admin = 0');
+        $q = $this->_db->prepare('SELECT * FROM User WHERE isAdmin = 0');
         $q->execute();
 
         return $q->fetchAll();

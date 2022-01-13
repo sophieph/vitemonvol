@@ -3,7 +3,7 @@ session_start();
 ob_start(); ?>
 
 <?php 
-    if (!empty($_SESSION['user']) && $_SESSION['user'] == 0) {
+    if (!empty($_SESSION['user']) && $_SESSION['user'] == 'admin') {
         header('Location: ?action=board');
     } else {
 ?>
