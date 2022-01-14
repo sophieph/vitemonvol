@@ -51,6 +51,8 @@ try {
             adminUsersView();
         } else if ($_GET['action'] == 'admin-edit-user') { // admin : edit user
             adminEditUser();
+        } else if ($_GET['action'] == 'admin-bookings') { // admin : bookings
+            adminBookingsView();
         } 
     } else {
         homePage();

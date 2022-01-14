@@ -21,8 +21,7 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'admin') {
                 <th>Nom</th>
                 <th>Date</th>
                 <th>Voyageurs Max</th>
-                <th>Voyageurs actuels</th>
-                <th>Images</th>
+                <th>Prix</th>
                 <th>Modifier</th>
                 <th></th>
                 
@@ -32,12 +31,12 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'admin') {
                 ?>
 
                 <tr>
-                    <td><?php echo $trip['id']?></td>
-                    <td><?php echo $trip['name']?></td>
-                    <td><?php echo $trip['date']?></td>
-                    <td><?php echo $trip['maximumTravellers']?></td>
-                    <td></td>
-                    <td><?php echo $trip['date']?></td>
+                    <td><?php echo $trip['id']; ?></td>
+                    <td><?php echo $trip['name']; ?></td>
+                    <td><?php echo $trip['date']; ?></td>
+                    <td><?php echo $trip['maximumTravellers']; ?></td>
+                    
+                    <td><?php echo $trip['price']?>&euro;</td>
                     <td><a href="?action=admin-edit-trip&id=<?php echo $trip['id']; ?>">Modifier</a></td>
                 </tr>
 

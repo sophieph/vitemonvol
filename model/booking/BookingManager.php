@@ -36,6 +36,23 @@ class BookingManager
         
     }
 
+
+    /**
+     * GetList
+     *
+     * @return void
+     * 
+     * list of all booking in admin
+     */
+    public function getListByTrip() 
+    {
+        $requete = 'SELECT COUNT(tripId) AS "voyageursActuel", tripId FROM booking GROUP BY tripId;';
+        $result = $this->_db->query($requete);
+        $rows = $result->fetchAll();
+
+        return $rows;
+        
+    }
     /**
      * Get
      *

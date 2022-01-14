@@ -84,9 +84,10 @@ function adminTripsView()
 
     $db = db();
     $tripManager = new TripManager($db);
-
+    $bookingManager = new BookingManager($db);
+    
     $trips = $tripManager->getList();
-
+    $bookings = $bookingManager->getList();
 
     include_once ROOT_PATH . 'view/admin/trip/trips.php';
 }
@@ -247,4 +248,29 @@ function adminEditUser() {
         $user = $userManager->getId($id);
         include_once ROOT_PATH . 'view/admin/user/user-view.php';
     }
+
+
+}
+
+/**
+ * AdminBookingsView
+ *
+ * @return void
+ * 
+ * admin bookings view
+ */
+function adminBookingsView() 
+{
+
+    $db = db();
+    $bookingManager = new BookingManager($db);
+    $tripManager = new TripManager($db);
+    $userManager = new UserManager($db);
+
+    $bookings = $bookingManager->getList();
+    $trips = $tripManager->getList();
+    $users = $userManager->getList();
+
+    $bookingWithTravellers = $bookingManager->getListByTrip();
+    include_once ROOT_PATH . 'view/admin/booking/bookings.php';
 }
