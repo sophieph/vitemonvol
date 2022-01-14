@@ -10,19 +10,25 @@ ob_start(); ?>
                 <p><?php echo $trip['price']; ?>&euro;</p>
                 <p>Date : <?php echo $trip['date']; ?></p>
 
-                <?php if ($maximumTravellers - $countBooking !== 0 ) { ?>
-                    <?php if (!$bookingExists) {?>
-                        <br>
-                            <button id="add-to-booking" value="<?php echo $trip['id']; ?>" onclick="return(bookTrip(<?php echo $trip['id']; ?>));">Réserver le voyage</button> 
-                        <br>
-                    <?php } else { ?>
-                        <button style="opacity:50%;" id="add-to-bag" value="<?php echo $trip['id']; ?>" >Voyage réservé</button> 
+                <?php if (!empty($_SESSION)) { ?>
+
+                    <?php if ($maximumTravellers - $countBooking !== 0 ) { ?>
+                        <?php if (!$bookingExists) {?>
+                            <br>
+                                <button id="add-to-booking" value="<?php echo $trip['id']; ?>" onclick="return(bookTrip(<?php echo $trip['id']; ?>));">Réserver le voyage</button> 
+                            <br>
+                        <?php } else { ?>
+                            <button style="opacity:50%;" id="add-to-bag" value="<?php echo $trip['id']; ?>" >Voyage réservé</button> 
+                        <?php } ?>
+
+                    <?php } else if ($maximumTravellers == $countBooking) { ?>
+                        <button style="opacity:50%;" id="add-to-bag" value="<?php echo $trip['id']; ?>" >Voyage complet </button> 
                     <?php } ?>
 
-                <?php } else if ($maximumTravellers == $countBooking) { ?>
-                    <button style="opacity:50%;" id="add-to-bag" value="<?php echo $trip['id']; ?>" >Voyage complet </button> 
-                <?php } ?>
+                <?php } else { ?>
+                    <a href="?action=signin"><button style="opacity:50%;" id="add-to-bag" >Connectez-vous pour réserver le voyage</button> </a>
 
+                <?php } ?>
 
                 
 
