@@ -53,7 +53,9 @@ try {
             adminEditUser();
         } else if ($_GET['action'] == 'admin-bookings') { // admin : bookings
             adminBookingsView();
-        } 
+        } else if ($_GET['action'] == '404') {
+            errorPage();
+        }
     } else {
         homePage();
     }

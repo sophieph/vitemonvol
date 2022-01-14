@@ -28,4 +28,9 @@ function homepage()
     include_once ROOT_PATH . 'view/main/homepage.php';
 }
 
+function errorPage() {
+    include_once ROOT_PATH . 'view/layoutParts/error404.php';
+
+}
+
 
