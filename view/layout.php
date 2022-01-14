@@ -1,5 +1,7 @@
 <?php 
     session_start();
+    $session_value = (isset($_SESSION['user'])) ? $_SESSION['id'] : ''; 
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,11 +39,16 @@
         <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
         <script src="<?php echo BASE_URL; ?>public/js/validation-form.js"></script>
         <script src="<?php echo BASE_URL; ?>public/js/user.js"></script>
+        <script src="<?php echo BASE_URL; ?>public/js/booking.js"></script>
 
         
         <script type="text/javascript">
-        
+            $( document ).ready(function() {
+                id_member = '<?php echo $session_value;?>';
+                console.log(id_member);
+            });
         </script>
+
     </body>
 
 </html>

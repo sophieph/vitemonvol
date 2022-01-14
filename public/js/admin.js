@@ -63,3 +63,26 @@ function editTrip() {
 
     return false;
 }
+
+function editUser() {
+    var id = document.getElementById("id").value;
+    var isAdmin = document.getElementById("isAdmin").checked;
+
+    
+    if (isAdmin) {
+        isAdmin = 1;
+    } else {
+        isAdmin = 0;
+    }
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            window.location = "/vitemonvol/?action=admin-edit-user&id=" + id;
+		} 
+	};
+    xhr.open("GET", "index.php?action=admin-edit-user&id=" + id + "&isAdmin=" + isAdmin , true);
+    xhr.send(null);
+
+    return false;
+}

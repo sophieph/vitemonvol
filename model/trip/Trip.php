@@ -5,7 +5,6 @@
  */
 class Trip
 {
-    
     protected $id;
     protected $name;
     protected $date;

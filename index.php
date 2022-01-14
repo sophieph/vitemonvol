@@ -4,6 +4,8 @@ require  ROOT_PATH . 'controller/controller.php';
 require  ROOT_PATH . 'controller/admin/AdminController.php';
 require  ROOT_PATH . 'controller/user/UserController.php';
 require  ROOT_PATH . 'controller/trip/TripController.php';
+require  ROOT_PATH . 'controller/booking/BookingController.php';
+
 
 try {
     if (isset($_GET['action'])) {
@@ -21,12 +23,16 @@ try {
             signup();
         } else if ($_GET['action'] == 'account') { // Account for member
             account();
+        } else if ($_GET['action'] == 'booking') { // Account for member
+            booking();
         } else if ($_GET['action'] == 'editUser') { // modify info for member
             editUser();
         } else if ($_GET['action'] == 'trips') { // liste des voyages
             tripsView();
         } else if ($_GET['action'] == 'trip') { // infos du voyage
             trip();
+        } else if ($_GET['action'] == 'add-booking') { // infos du voyage
+            addBooking();
         } else if ($_GET['action'] == 'admin') { // Admin view
             adminView();
         } else if ($_GET['action'] == 'adminc') { // Admin sign in

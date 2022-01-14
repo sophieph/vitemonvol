@@ -238,7 +238,7 @@ function adminEditUser() {
 
         $userManager->editRole($user);
 
-        $user = $userManager->get($id);
+        $user = $userManager->getId($id);
 
         $response = $user->getName();
         echo $response;

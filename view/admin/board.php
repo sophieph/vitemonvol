@@ -11,6 +11,7 @@ ob_start(); ?>
     <div class="admin">
         <ul>
             <li> <a href="?action=admin-trips">Gérer les circuits</a></li>
+            <li> <a href="?action=admin-bookings">Gérer les réservations</a></li>
             <li> <a href="?action=admin-users">Gérer les utilisateurs</a></li>
         </ul>
     </div>

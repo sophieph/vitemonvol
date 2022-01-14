@@ -55,7 +55,7 @@ class TripManager
 
         $trip->hydrate(
             [
-            'code' => $this->_db->lastInsertId()
+            'id' => $this->_db->lastInsertId()
             ]
         );
     }

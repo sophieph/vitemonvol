@@ -20,7 +20,7 @@ if(isset($_SESSION['user'])){
         <div class="menu">
             <ul>
                 <li><a href="?action=account">Mes informations</a></li>
-                <li><a href="?action=history">Mes voyages</a></li>
+                <li><a href="?action=booking">Mes voyages</a></li>
             </ul>
         </div>
 

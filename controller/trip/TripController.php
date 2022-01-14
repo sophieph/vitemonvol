@@ -27,6 +27,24 @@ function trip() {
         $tripManager = new TripManager($db);
 
         $trip = $tripManager->get($id);
+
+        session_start();
+        if (!empty($_SESSION)) {
+            $userId = $_SESSION['id'];
+
+            $db = db();
+            $bookingManager = new BookingManager($db); 
+
+            $bookingExists = $bookingManager->exists($userId, $id);
+
+        } 
+
+        $maximumTravellers = $trip['maximumTravellers'];
+
+        $db = db();
+        $bookingManager = new BookingManager($db); 
+        $countBooking = count($bookingManager->getBookingTrip($trip['id']));
+
         include_once ROOT_PATH . 'view/trip/trip-view.php';
     } else {
         include_once ROOT_PATH . 'view/layoutParts/error404.php';
